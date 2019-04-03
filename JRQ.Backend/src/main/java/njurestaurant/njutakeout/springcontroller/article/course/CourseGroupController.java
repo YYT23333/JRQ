@@ -3,20 +3,17 @@ package njurestaurant.njutakeout.springcontroller.article.course;
 import io.swagger.annotations.*;
 import njurestaurant.njutakeout.blservice.article.course.CourseGroupBlService;
 import njurestaurant.njutakeout.exception.NotExistException;
-import njurestaurant.njutakeout.exception.SystemException;
 import njurestaurant.njutakeout.parameters.course.CourseGroupParameters;
 import njurestaurant.njutakeout.response.InfoResponse;
 import njurestaurant.njutakeout.response.Response;
 import njurestaurant.njutakeout.response.WrongResponse;
 import njurestaurant.njutakeout.response.article.course.CourseGroupListResponse;
 import njurestaurant.njutakeout.response.article.course.CourseGroupResponse;
-import njurestaurant.njutakeout.response.event.EventLoadResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.*;
 import java.util.*;
 

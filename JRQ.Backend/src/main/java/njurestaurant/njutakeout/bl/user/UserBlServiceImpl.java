@@ -55,8 +55,8 @@ public class UserBlServiceImpl implements UserBlService {
     }
 
     @Override
-    public InfoResponse addUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, String levelName, boolean valid) throws NotExistException {
-        userDataService.addUser(new User(openid, username, face, medals, phone, email, company, department, position, intro, city, credit, label,
+    public InfoResponse addUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label,List<String> label2, String levelName, boolean valid) throws NotExistException {
+        userDataService.addUser(new User(openid, username, face, medals, phone, email, company, department, position, intro, city, credit, label,label2,
                 levelDataService.getLevelByName(levelName).getCardLimit(), levelName, valid));
         return new InfoResponse();
     }
@@ -77,10 +77,10 @@ public class UserBlServiceImpl implements UserBlService {
     }
 
     @Override
-    public InfoResponse updateUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, String levelName, boolean valid) throws NotExistException {
+    public InfoResponse updateUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label,List<String> label2, String levelName, boolean valid) throws NotExistException {
         User user = userDataService.getUserByOpenid(openid);
         int used = levelDataService.getLevelByName(user.getLevelName()).getCardLimit() - user.getCardLimit(); //已经用掉的次数
-        userDataService.updateUserByOpenid(openid, username, face, medals, phone, email, company, department, position, intro, city, credit, label,
+        userDataService.updateUserByOpenid(openid, username, face, medals, phone, email, company, department, position, intro, city, credit, label,label2,
                 levelDataService.getLevelByName(levelName).getCardLimit() - used, levelName, valid);
         return new InfoResponse();
     }
@@ -228,7 +228,7 @@ public class UserBlServiceImpl implements UserBlService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            user = new User(openid, username, faceLocalUrl, new ArrayList<>(), "", "", "", "", "", "", "", 0, defaultLabel, initCardLimit, "common", true);
+            user = new User(openid, username, faceLocalUrl, new ArrayList<>(), "", "", "", "", "", "", "", 0, defaultLabel, defaultLabel,initCardLimit, "common", true);
             userDataService.addUser(user);
         }
 
@@ -361,9 +361,9 @@ public class UserBlServiceImpl implements UserBlService {
     }
 
     @Override
-    public InfoResponse updateMyProfile(String openid, String username, String face, String phone, String email, String company, String department, String position, String intro, String city, List<String> label) throws NotExistException {
+    public InfoResponse updateMyProfile(String openid, String username, String face, String phone, String email, String company, String department, String position, String intro, String city, List<String> label,List<String> label2) throws NotExistException {
         User user = userDataService.getUserByOpenid(openid);
-        userDataService.updateUserByOpenid(openid, username, face, user.getMedals(), phone, email, company, department, position, intro, city, user.getCredit(), label, user.getCardLimit(), user.getLevelName(), user.isValid());
+        userDataService.updateUserByOpenid(openid, username, face, user.getMedals(), phone, email, company, department, position, intro, city, user.getCredit(), label,label2, user.getCardLimit(), user.getLevelName(), user.isValid());
         return new InfoResponse();
     }
 

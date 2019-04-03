@@ -37,7 +37,7 @@ public interface UserBlService {
 	 * @param valid 是否冻结/启用，true代表启用
 	 * @return 是否成功
 	 */
-	InfoResponse addUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, String levelName, boolean valid) throws NotExistException;
+	InfoResponse addUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, List<String> label2,String levelName, boolean valid) throws NotExistException;
 
 	/**
 	 * 根据微信openid获取用户信息(Admin)
@@ -71,7 +71,7 @@ public interface UserBlService {
 	 * @param valid 是否冻结/启用，true代表启用
 	 * @return 是否成功
 	 */
-	InfoResponse updateUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, String levelName, boolean valid) throws NotExistException;
+	InfoResponse updateUser(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label,List<String> label2, String levelName, boolean valid) throws NotExistException;
 
 	/**
 	 * 根据微信openid删除用户(Admin)
@@ -221,7 +221,7 @@ public interface UserBlService {
 	 * @param label 用户标签
 	 * @return 是否成功
 	 */
-	InfoResponse updateMyProfile(String openid, String username, String face, String phone, String email, String company, String department, String position, String intro, String city, List<String> label) throws NotExistException;
+	InfoResponse updateMyProfile(String openid, String username, String face, String phone, String email, String company, String department, String position, String intro, String city, List<String> label,List<String> label2) throws NotExistException;
 
 	/**
 	 * 根据用户微信openid获取其业务名片(User)

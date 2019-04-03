@@ -19,6 +19,7 @@ public class UserItem {
 	private String city; //所在城市
 	private int credit; //账户余额
 	private List<String> label; //用户类别信息，可取值：融资租赁，商业保理，地产交易，金融牌照
+	private List<String> label2;
 	private int cardLimit; //今天剩余查看别人名片的次数
 	private String levelName; //用户所属会员等级
 	private boolean isEnterprise; //是否为企业用户
@@ -38,6 +39,7 @@ public class UserItem {
 		this.city = user.getCity();
 		this.credit = user.getCredit();
 		this.label = user.getLabel();
+		this.label2=user.getLabel2();
 		this.cardLimit = user.getCardLimit();
 		switch(user.getLevelName()){
 			case "VIP":
@@ -155,6 +157,14 @@ public class UserItem {
 
 	public void setLabel(List<String> label) {
 		this.label = label;
+	}
+
+	public List<String> getLabel2() {
+		return label2;
+	}
+
+	public void setLabel2(List<String> label2) {
+		this.label2 = label2;
 	}
 
 	public int getCardLimit() {

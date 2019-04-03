@@ -58,7 +58,7 @@ public class UserDataServiceImpl implements UserDataService {
 	}
 
 	@Override
-	public void updateUserByOpenid(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, int cardLimit, String levelName, boolean valid) throws NotExistException {
+	public void updateUserByOpenid(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, List<String> label2,int cardLimit, String levelName, boolean valid) throws NotExistException {
 		Optional<User> optionalUser = userDao.findById(openid);
 		if(optionalUser.isPresent()) {
 			User user = optionalUser.get();
@@ -74,6 +74,7 @@ public class UserDataServiceImpl implements UserDataService {
 			user.setCity(city);
 			user.setCredit(credit);
 			user.setLabel(label);
+			user.setLabel2(label2);
 			user.setCardLimit(cardLimit);
 			user.setLevelName(levelName);
 			user.setValid(valid);

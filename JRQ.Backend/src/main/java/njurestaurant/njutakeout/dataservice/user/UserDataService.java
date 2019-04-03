@@ -18,7 +18,7 @@ public interface UserDataService {
 
 	List<User> getAllUsers();
 
-	void updateUserByOpenid(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, int cardLimit, String levelName, boolean valid) throws NotExistException;
+	void updateUserByOpenid(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label,List<String> label2, int cardLimit, String levelName, boolean valid) throws NotExistException;
 
 	//注意：删除Enterprise时统一使用deleteEnterpriseById（封装了相关数据连锁删除）
 	void deleteUserByOpenid(String openid) throws NotExistException;

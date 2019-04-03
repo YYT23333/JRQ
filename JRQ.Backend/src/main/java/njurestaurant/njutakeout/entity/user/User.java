@@ -51,6 +51,10 @@ public class User {
 	private List<String> label; //用户类别信息，可取值：融资租赁，商业保理，地产交易，金融牌照
 
 	@Column
+	@ElementCollection(targetClass = String.class)
+	private List<String> label2; //用户类别信息，可取值：融资租赁，商业保理，地产交易，金融牌照
+
+	@Column
 	private int cardLimit; //今天剩余查看别人名片的次数
 
 	@Column
@@ -65,7 +69,7 @@ public class User {
 	public User() {
 	}
 
-	public User(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, int cardLimit, String levelName, boolean valid) {
+	public User(String openid, String username, String face, List<String> medals, String phone, String email, String company, String department, String position, String intro, String city, int credit, List<String> label, List<String> label2,int cardLimit, String levelName, boolean valid) {
 		this.openid = openid;
 		this.username = username;
 		this.face = face;
@@ -79,6 +83,7 @@ public class User {
 		this.city = city;
 		this.credit = credit;
 		this.label = label;
+		this.label2=label2;
 		this.cardLimit = cardLimit;
 		this.levelName = levelName;
 		this.valid = valid;
@@ -187,6 +192,14 @@ public class User {
 
 	public void setLabel(List<String> label) {
 		this.label = label;
+	}
+
+	public List<String> getLabel2() {
+		return label2;
+	}
+
+	public void setLabel2(List<String> label2) {
+		this.label2 = label2;
 	}
 
 	public int getCardLimit() {

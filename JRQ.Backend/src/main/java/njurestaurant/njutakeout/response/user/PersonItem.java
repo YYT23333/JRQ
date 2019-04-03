@@ -17,7 +17,7 @@ public class PersonItem {
 	private String city; //所在城市
 	private List<String> label; //用户类别信息，可取值：融资租赁，商业保理，地产交易，金融牌照
 	//private String bgColor; //标签背景颜色，对应Classification表中的color字段
-
+	private List<String> label2;
 	public PersonItem() {
 	}
 
@@ -31,6 +31,7 @@ public class PersonItem {
 		this.intro = user.getIntro();
 		this.city = user.getCity();
 		this.label = user.getLabel();
+		this.label2=user.getLabel2();
 //		try {
 //			this.bgColor = classificationDataService.getClassificationByUserLabel(user.getLabel()).getColor();
 //		} catch (NotExistException e) {
@@ -108,6 +109,14 @@ public class PersonItem {
 
 	public void setLabel(List<String> label) {
 		this.label = label;
+	}
+
+	public List<String> getLabel2() {
+		return label2;
+	}
+
+	public void setLabel2(List<String> label2) {
+		this.label2 = label2;
 	}
 
 	//	public String getBgColor() {
